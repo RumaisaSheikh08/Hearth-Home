@@ -9,6 +9,7 @@ namespace StoreEcommerce.AutoMapper
         public MappingProfile() 
         {
             CreateMap<UserRegisterDTO, Users>();
+            CreateMap<ProductDetailsDTO, Product>();
         }
     }
 }

@@ -1,9 +1,13 @@
-﻿namespace StoreEcommerce.DTO
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+
+namespace StoreEcommerce.DTO
 {
     public class ProductDetailsDTO
     {
         public int ProductId { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
         public string Description { get; set; }
         public decimal Price { get; set; }
         public string Category { get; set; }

@@ -1,4 +1,5 @@
-﻿using StoreEcommerce.Models;
+﻿using StoreEcommerce.DTO;
+using StoreEcommerce.Models;
 
 namespace StoreEcommerce.Interfaces
 {
@@ -6,6 +7,6 @@ namespace StoreEcommerce.Interfaces
     {
         Task<List<Product>> GetAllProducts();
         Task<Product> GetProductById(int id);
-        Task AddProduct(Product product);
+        Task <string> AddProduct(ProductDetailsDTO product);
     }
 }
