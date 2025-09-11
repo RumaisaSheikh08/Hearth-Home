@@ -21,6 +21,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<IUserInterface , UserService>();
 builder.Services.AddScoped<IProductInterface , ProductService>();
+builder.Services.AddScoped<IOrderInterface , OrderServices>();
 
 
 builder.Host.UseSerilog((context, configuration) =>

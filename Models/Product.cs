@@ -9,5 +9,6 @@
         public string Category { get; set; }
          public int StockQty { get; set; }
         public string ImageUrl { get; set; }
+        public ICollection<OrderItems> Items { get; set; }
     }
 }

@@ -10,6 +10,8 @@ namespace StoreEcommerce.AutoMapper
         {
             CreateMap<UserRegisterDTO, Users>();
             CreateMap<ProductDetailsDTO, Product>();
+            CreateMap<OrderDTO, Order>();
+            CreateMap<OrderItemDTO, OrderItems>();
         }
     }
 }

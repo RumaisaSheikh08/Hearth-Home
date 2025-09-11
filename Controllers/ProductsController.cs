@@ -37,7 +37,7 @@ namespace StoreEcommerce.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError("Database exception incurred: {Ex}", ex);
+                _logger.LogError("Exception incurred: {Ex}", ex);
                 return NotFound();
             }
         }
@@ -59,7 +59,7 @@ namespace StoreEcommerce.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError("Database exception incurred: {Ex}", ex);
+                _logger.LogError("Exception incurred: {Ex}", ex);
                 return NotFound();
             }
         }
@@ -76,7 +76,7 @@ namespace StoreEcommerce.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError("Database exception incurred: {Ex}", ex);
+                _logger.LogError("Exception incurred: {Ex}", ex);
                 return NotFound();
             }
         }
