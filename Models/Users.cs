@@ -9,6 +9,13 @@
         public DateTime CreatedAt { get; set; }
     }
 
+    public class UserRegisterResponse 
+    { 
+        public string Message { get; set; }    
+    
+    }
+
+
     public class LoginUserRequest
     {
         public string Email { get; set; } = string.Empty;

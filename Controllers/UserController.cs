@@ -24,13 +24,14 @@ namespace StoreEcommerce.Controllers
 
 
         [HttpPost("register")]
-        public async Task<ActionResult> AddNewUser(UserRegisterDTO userRegisterRequest)
+        public async Task<ActionResult> AddNewUser([FromBody] UserRegisterDTO userRegisterRequest)
         {
             try
             {
                 _logger.LogInformation("User Registeration Request Landed on User Controller");
-                var message = await _userInterface.AddUserRegisteration(userRegisterRequest);
-                return Ok(message);
+                UserRegisterResponse registerResponse = new UserRegisterResponse();
+                registerResponse = await _userInterface.AddUserRegisteration(userRegisterRequest);
+                return Ok(registerResponse);
             }
             catch (Exception ex)
             {

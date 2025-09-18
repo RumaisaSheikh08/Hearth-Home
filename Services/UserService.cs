@@ -31,9 +31,9 @@ namespace StoreEcommerce.Services
             _configuration = configuration;
         }
 
-        public async Task<string> AddUserRegisteration(UserRegisterDTO userRegisterDTO)
+        public async Task<UserRegisterResponse> AddUserRegisteration(UserRegisterDTO userRegisterDTO)
         {
-            string Message = string.Empty;
+            UserRegisterResponse registerResponse = new UserRegisterResponse();
             try
             {
                 _logger.LogInformation("A new user to register: {Email}" , userRegisterDTO.Email);
@@ -45,23 +45,23 @@ namespace StoreEcommerce.Services
                 //The entry is now added to the database
                 var userRegisterInfo = _mapper.Map<Users>(userRegisterDTO);
                 userRegisterInfo.PasswordHash = userPassword;
+                userRegisterInfo.CreatedAt = DateTime.Now;
                 await _dbContext.Users.AddAsync(userRegisterInfo);
                 await _dbContext.SaveChangesAsync();
-                Message = "Successfully Registered";
-                return Message;
+                registerResponse.Message = "Successfully Registered";
+                return registerResponse;
             }
             catch (DbException dbException)
             {
                 _logger.LogError("Database exception incurred: {DBEx}", dbException);
-                Message = "Registeration Failed";
-                return Message;
-
+                registerResponse.Message = "Registeration Failed";
+                return registerResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Database exception incurred: {Ex}", ex);
-                Message = "Registeration Failed";
-                return Message;
+                registerResponse.Message = "Registeration Failed";
+                return registerResponse;
             }
         }
 
@@ -84,7 +84,7 @@ namespace StoreEcommerce.Services
                     responseLogin = new LoginResponseDTO()
                     {
                         Token = token,
-                        Status = "Valid User"
+                        Status = "AUTHORIZED"
                     };
                     return responseLogin;
 
@@ -133,6 +133,7 @@ namespace StoreEcommerce.Services
                 new Claim(JwtRegisteredClaimNames.Sub , email),
                 new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString())
             };
+
 
             var token = new JwtSecurityToken(
                 issuer: jwtSettings["Issuer"],

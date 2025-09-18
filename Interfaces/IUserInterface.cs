@@ -6,7 +6,7 @@ namespace StoreEcommerce.Interfaces
 {
     public interface IUserInterface
     {
-        Task<string> AddUserRegisteration(UserRegisterDTO userRegisterDTO);
+        Task<UserRegisterResponse> AddUserRegisteration(UserRegisterDTO userRegisterDTO);
         Task<LoginResponseDTO> LoginUser(LoginUserRequest requestLogin);
     }
 }
