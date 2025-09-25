@@ -26,13 +26,17 @@ namespace StoreEcommerce.Controllers
             try
             {
                 _logger.LogInformation("Request Landed on Product Controller - GetAllProducts");
+
+              
                 List<Product> productList = await _productInterface.GetAllProducts();
                 if (productList == null)
                 {
                     return NotFound();
                 }
-
-                return Ok(productList);
+                else
+                {
+                    return Ok(productList);
+                }
 
             }
             catch (Exception ex)
@@ -70,7 +74,7 @@ namespace StoreEcommerce.Controllers
             try
             {
                 _logger.LogInformation("Request Landed on Product Controller - AddNewProduct {Name}", productDetails.Name);
-                string message = await _productInterface.AddProduct(productDetails);
+                string message = await _productInterface.AddProduct(productDetails);             
                 return Ok(message);
 
             }

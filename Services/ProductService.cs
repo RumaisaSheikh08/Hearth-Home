@@ -14,11 +14,14 @@ namespace StoreEcommerce.Services
         private readonly ApplicationDbContext _context;
         private readonly ILogger<ProductService> _logger;
         private readonly IMapper _mapper;
-        public ProductService(ApplicationDbContext context , ILogger<ProductService> logger, IMapper mapper)
+        private readonly ICacheInterface _cacheInterface;
+
+        public ProductService(ApplicationDbContext context , ILogger<ProductService> logger, IMapper mapper, ICacheInterface cacheInterface)
         { 
             _context = context;
             _logger = logger;
             _mapper = mapper;
+            _cacheInterface = cacheInterface;
         }
 
         public async Task<List<Product>> GetAllProducts()
@@ -27,13 +30,21 @@ namespace StoreEcommerce.Services
             try
             {
                 _logger.LogInformation("Request to get all the products");
-
+                //Get it from Cache - if not then hit the database
+                List<Product> listProduct = await _cacheInterface.GetAsync<List<Product>>("products_list");
+                if (listProduct is not null)
+                {
+                    _logger.LogInformation("Request to get all the products from Cache {Count}: ", listProduct.Count().ToString());
+                    return listProduct;
+                }
+                
                 products = await _context.Products.ToListAsync();
 
                 _logger.LogInformation("Request to get all the products from db {Count}: ", products.Count().ToString());
                 
+                await _cacheInterface.SetAsync("products_list", products, TimeSpan.FromMinutes(30));
                 return products;
-                
+
             }
             catch(DbException dbException)
             {
@@ -86,6 +97,8 @@ namespace StoreEcommerce.Services
 
                 await _context.Products.AddAsync(productsAdd);
                 await _context.SaveChangesAsync();
+                //After adding a new product to the database the old one should get deleted
+                await _cacheInterface.RemoveAsync("products_list");
                 return Message = "Successfully added to the database";
             }
             catch (DbException dbException)
