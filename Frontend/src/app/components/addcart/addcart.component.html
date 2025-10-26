@@ -1,0 +1,40 @@
+
+<h1 class="headCart">MY SHOPPING BAG</h1>
+
+<div class="cart-wrapper">
+  <div class="cart-container">
+    <ng-container *ngFor="let item of cardItems">
+      <div class="card" *ngIf="item">
+        <img class="card-img" [src]="item.imageUrl" [alt]="item.name" />
+        <div class="card-details">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">{{ item.description }}</p>
+          <p class="card-text">QTY: {{ item.quantity }}</p>
+          <p class="card-text">Price: {{ item.price }} AED</p>
+          <p class="card-text total">Total: {{ item.quantity * item.price }} AED</p>
+          <button class="btn-remove" (click)="removeItem(item.productId)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="summary-cart">
+    <h3>Order Summary</h3>
+    <hr class="white-line"/>
+      <label>Do you have a promo code?</label>
+      <input type="text" class="promo-text"><button class="promo-btn">Apply</button>
+      <hr class="white-line"/>
+      <h6 style="padding-top: 10px;">SUBTOTAL: {{totalAmount}} AED</h6>
+      <p>Shipping: {{shipping}} AED</p>
+      <p>Sales Tax: {{salesTax}} %</p>
+      <hr class="white-line"/>
+      <h6>ESTIMATED TOTAL: {{estimatedTotal}} AED</h6>
+      <hr class="white-line"/>
+      <button class="btn-checkout" (click)="AddCart()" >Checkout</button> 
+      <p style="font-size: 12px; text-align: center;">Need help? Call us at +971 (9) 362-6922</p>
+      <hr class="white-line"/>
+  </div>
+</div>
+

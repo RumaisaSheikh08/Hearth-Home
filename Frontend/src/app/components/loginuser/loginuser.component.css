@@ -1,0 +1,84 @@
+
+.loginContainer{
+    position: relative;
+    display: inline-block;
+    width: 100%; 
+}
+
+.imgHomepage {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.heading{
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.card {
+    width: 40rem;
+    position: absolute;
+    top: 35%;             
+    left: 50%;           
+    transform: translate(-50%, -50%);
+    color: black;        
+    text-align: center;
+    font-family: "Arimo", sans-serif !important;
+    height: 400px;
+    background: linear-gradient(
+        135deg,
+        beige 0%,
+        white 50%,
+        lightgrey 100%
+      );
+}
+
+.lblEmail{
+    margin-top: 20px;
+    margin-left: -180px;
+}
+
+.lblPassword{
+    margin-top: 10px;
+    margin-left: -160px;
+}
+
+#Email,#Password {
+    border: 1px solid black;
+    margin-left: 30px;
+}
+
+.btnSubmit{
+    background: #a67c52;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-left: 60px;
+    margin-bottom: 30px;
+}
+
+.btnSubmit:hover {
+    background: #8b5e3c;
+}
+
+a{
+    text-decoration: none;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.3s;
+  }
+  
+input:focus {
+    border: 1px solid #a67c52; 
+    box-shadow: 0 0 5px rgba(166, 124, 82, 0.5);
+}

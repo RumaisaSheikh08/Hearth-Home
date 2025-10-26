@@ -1,0 +1,80 @@
+
+.container-body{
+    background: linear-gradient(to bottom, #ffffff, #f2f2f2, #e0e0e0, #d1d1d1);
+}
+
+.container-head{
+    text-align: center;
+    padding: 8px;
+}
+
+.categoryRooms{
+    display:grid;
+    justify-content: center;
+    margin-left:120px;
+    padding: 10px;
+}
+
+.imgCatalogue{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.custom-card-living{
+    width:250px;
+    background-color: transparent;
+    border-color: #003049;
+    border-width: 2px;
+    height: 322px;
+}
+
+.custom-card-bedroom{
+    width:250px;
+    margin-left: 70px;
+    height: 322px;
+    background-color: transparent;
+    border-color: #003049;
+    border-width: 2px;
+
+}
+
+.custom-card-dining{
+    width:250px;
+    margin-left: 140px;
+    height: 322px;
+    background-color: transparent;
+    border-color:#003049;
+    border-width: 2px;
+
+}
+
+.custom-card-office{
+    width:250px;
+    margin-left: 210px;
+    height: 322px;
+    background-color: transparent;
+    border-color:#003049;
+    border-width: 2px;
+
+}
+
+.headRooms{
+    text-align: center;
+    font-family: "Arimo", sans-serif !important;
+    padding-top: 6px;
+}
+
+.captCata{
+    text-align: center;
+    font-size:12px;
+    font-family: "Arimo", sans-serif !important;
+}
+
+.btnBrowse{
+    background-color:
+    #003049;
+    border-color: whitesmoke;
+    border-radius: 0;
+    margin-left: 50px;
+}

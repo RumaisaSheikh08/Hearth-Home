@@ -1,0 +1,48 @@
+<h2 class="heading">Payment Details</h2>
+<div class="cart-wrapper">
+  <div class="cart-container">
+    <div class="card">
+        <form [formGroup]= "paymentDetails"  (ngSubmit) = "paymentDetailsForm()">
+            <div class="form-group">
+                <label for="text">Card Number:</label>
+                <input type="text" id="CardNumber" class="form-control" formControlName="CardNumber" placeholder="xxxx-xxxx-xxxx-xxxx">
+                <div *ngIf="this.paymentDetails?.get('CardNumber')?.invalid && this.paymentDetails?.get('CardNumber')?.touched" class="text-danger"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="CVV">CVV:</label>
+                    <input type="text" id="CVV" class="form-control" formControlName="CVV" placeholder="123">
+                    <div *ngIf="paymentDetails?.get('CVV')?.invalid && paymentDetails?.get('CVV')?.touched" class="text-danger"></div>
+                  </div>
+                </div>
+              
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="ExpiryDate">Expiry Date:</label>
+                    <input type="text" id="ExpiryDate" class="form-control" formControlName="ExpiryDate" placeholder="01/28">
+                    <div *ngIf="paymentDetails?.get('ExpiryDate')?.invalid && paymentDetails?.get('ExpiryDate')?.touched" class="text-danger"></div>
+                  </div>
+                </div>
+              </div>
+            <div class="form-group">
+                <label for="text">Name on Card:</label>
+                <input type="text" id="NameOnCard" class="form-control" formControlName="NameOnCard" placeholder="John Doe">
+                <div *ngIf="this.paymentDetails?.get('NameOnCard')?.invalid && this.paymentDetails?.get('NameOnCard')?.touched" class="text-danger"></div>
+            </div>
+            <button class="btn-checkout" type="submit">Pay Now</button>
+        </form>
+    </div>
+</div>
+
+  <div class="summary-cart">
+    <h3>Order Summary</h3>
+      <hr class="white-line"/>
+      <h6 style="padding-top: 10px;">SUBTOTAL: {{this.amountDetails.totalAmount}} AED</h6>
+      <p>Shipping: {{this.amountDetails.shipping}} AED</p>
+      <p>Sales Tax: {{this.amountDetails.salesTax}} %</p>
+      <hr class="white-line"/>
+      <h6>ESTIMATED TOTAL:{{this.amountDetails.estimatedTotal}} AED</h6>
+  </div>
+</div>
+

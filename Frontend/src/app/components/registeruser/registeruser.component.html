@@ -1,0 +1,33 @@
+<div class="signUpContainer">
+    <img src="assets/images/pawel-czerwinski-q-3pnV8MKWE-unsplash.jpg" class="imgHomepage" alt="Homepage">
+    <div class="card">
+        <div class="container">
+            <h2 class="heading">Create Account</h2>
+            <form [formGroup]= "signUpForm" (ngSubmit) = "submitRegisterUser()">
+                <div class="form-group">
+                    <label for="Name" class="lblUser">Name: </label>
+                    <input type="text" id="userName" class="form-control" formControlName="Name" placeholder="Enter Your Name">
+                    <div *ngIf="this.signUpForm?.get('UserName')?.invalid && this.signUpForm.get('UserName')?.touched" class="text-danger"></div>
+                </div>
+                <div class="form-group">
+                    <label for="Email"class="lblUser">Email:</label>
+                    <input type="email" id="Email" class="form-control" formControlName="Email" placeholder="Enter Your Email">
+                    <div *ngIf="this.signUpForm?.get('Email')?.touched && this.signUpForm?.get('Email')?.touched" class="text-danger"></div>
+                </div>
+                <div class="form-group">
+                    <label for="Password" class="lblUserPassword">Password:</label>
+                    <input type="password" id="Password" class="form-control" formControlName="PasswordHash" placeholder="Enter Your Password">
+                    <div *ngIf="this.signUpForm?.get('Password')?.invalid && this.signUpForm?.get('Password')?.touched" class="text-danger"></div>
+                </div>
+                <div class="form-group">
+                    <label for="ConfirmPassword" class="lblUserCnfPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" class="form-control" formControlName="ConfirmPassword" placeholder="Re-enter Your Password">
+                    <div *ngIf="this.signUpForm?.get('ConfirmPassword')?.invalid && this.signUpForm?.get('ConfirmPassword')?.touched" class="text-danger"></div>
+                </div>
+                <br/>
+                <button class="btnSubmit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+</div>

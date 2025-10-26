@@ -1,0 +1,44 @@
+.container-rooms{
+    padding-top:30px;
+    padding-left: 60px;
+    background: linear-gradient(to bottom, #ffffff, #f2f2f2, #e0e0e0, #d1d1d1);
+}
+
+.fixed-img {
+    height: 200px;         
+    width: 100%;           
+    object-fit: cover;    
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.card-furniture{
+    background-color: transparent;
+    border-color: #003049;
+    border-width: 2px;
+}
+
+.card-head{
+    font-family: "Arimo", sans-serif !important;
+    text-align: center;
+    font-size: 18px;
+}
+
+.card-des{
+    font-family: "Arimo", sans-serif !important;
+    font-size: 14px;
+    text-align: center;
+}
+
+.btn-cart{
+    background-color:
+    #003049;
+    border-color: whitesmoke;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 64px;
+}
+
+.btn-cart :hover{
+    background-color: skyblue;
+}

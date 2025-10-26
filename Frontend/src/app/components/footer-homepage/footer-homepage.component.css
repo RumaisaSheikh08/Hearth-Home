@@ -1,0 +1,106 @@
+.sectionFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #003049; 
+    color: white;
+}
+
+.sectionFooter h6 {
+    margin-top:20px;
+    font-size: 14px;
+    font-weight: normal;
+    white-space: nowrap; 
+}
+  
+#emailSubscribe {
+    padding: 8px 12px;
+    border: 1px solid white;
+    border-radius: 2px;
+    background: transparent;
+    color: white;
+    min-width: 220px;
+    margin-top:15px;
+
+}
+  
+.sectionFooter button {
+    margin-top:15px;
+    padding: 8px 16px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+  
+.white-line {
+    border: none;
+    border-top: 2px solid white;
+    margin: 0;
+    margin-bottom:20px;
+}
+
+.containerFooter{
+    background-color:#003049;
+    color:white;
+}
+  
+.containerFootCata{
+    margin-top:0;
+    background-color:#003049;
+    color:white;
+}
+
+.catalogue-container {
+    display: flex;
+    align-items: flex-start; 
+    margin-left: 300px;      
+}
+
+.catalogueListMain{
+    margin-right: 20px; 
+}
+  
+.vertical-line-cataloge {
+    width: 1px;
+    background-color: grey;
+    height: 200px; 
+    margin-left: 60px;
+}
+  
+.catalogueList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: grey;
+}
+
+li{
+    list-style-type: none;
+}
+
+.vertical-line-order{
+    width: 1px;
+    background-color: grey;
+    height: 200px;
+    margin-left: 60px;
+}
+
+.containerLastFooter{
+    margin-top:0;
+    background-color:#003049;
+    color:white;
+    height: 90px;
+}
+
+.lastPara{
+    color:grey;
+    margin-left: 560px;
+}

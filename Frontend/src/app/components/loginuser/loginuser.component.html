@@ -1,0 +1,35 @@
+<div class="loginContainer">
+    <img src="assets/images/pawel-czerwinski-q-3pnV8MKWE-unsplash.jpg" class="imgHomepage" alt="Homepage">
+    <div class="card mb-3" >
+        <div class="row g-0">
+          <div class="col-md-5">
+            <img src="assets/images/jean-philippe-delberghe-Ry9WBo3qmoc-unsplash.jpg" class="img-fluid rounded-start" style="height:400px;" alt="...">
+          </div>
+          <div class="col-md-6">
+            <div class="container">
+                <h2 class="heading">Login</h2>
+                <p style="margin-left:60px;">Not a user? <a href="/registeruser" routerLink="/registeruser" routerLinkActive="active">Register</a></p>
+                <form [formGroup]= "loginUserForm"  (ngSubmit) = "submitLoginForm()">
+                    <div class="form-group">
+                        <label for="Email" class="lblEmail">Email:</label>
+                        <input type="email" id="Email" class="form-control" formControlName="Email">
+                        <div *ngIf="this.loginUserForm?.get('Email')?.invalid && this.loginUserForm?.get('Email')?.touched" class="text-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Password"class="lblPassword">Password:</label>
+                        <input type="password" id="Password" class="form-control" formControlName="PasswordHash">
+                        <div *ngIf="this.loginUserForm?.get('PasswordHash')?.invalid && this.loginUserForm?.get('PasswordHash')?.touched" class="text-danger"></div>
+                    </div>
+                    <p style="margin-left:60px; margin-top:5px;">Forgot Password? <a href="/">Click here</a></p>
+                    <br/>
+                    <button class="btnSubmit" type="submit">Submit</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+
+
+

@@ -1,0 +1,30 @@
+ <div class="card-container">
+    <div class="row g-0">
+        <div class="col-md-8">
+            <img class="img-fluid rounded-start img-furniture" [src]= "roomDetailsData.imageUrl" alt="Card image cap">
+        </div>
+    <div class="col-md-4 container-body">
+        <div class="card-body">
+            <h5 class="card-title">{{roomDetailsData.name}}</h5>
+            <div class="rating">
+                <div class="stars-container">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half-alt"></i>
+                </div>
+              </div>
+            <p class="card-text">{{roomDetailsData.description}}</p>
+            <p class="card-text">Price: {{roomDetailsData.price}} AED</p>
+            <p class="card-text">Stock Left: {{roomDetailsData.stockQty}}</p>
+            <div class="quantity-addcart">
+              <label>Quantity: </label>
+              <input type="number" id="quantity" min="1" [(ngModel)]="itemQuantity" />
+            </div>
+            <a class="btn btn-primary btn-cart" (click)="AddtoCart()">Add to cart</a>
+          </div>
+    </div>  
+    </div>
+
+ </div>   
