@@ -8,5 +8,6 @@ namespace StoreEcommerce.Interfaces
         Task<List<Product>> GetAllProducts();
         Task<Product> GetProductById(int id);
         Task <string> AddProduct(ProductDetailsDTO product);
+        Task<List<Product>> GetProductByCategory(string name);
     }
 }

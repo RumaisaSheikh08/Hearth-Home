@@ -83,6 +83,9 @@ namespace StoreEcommerce.Services
 
                     responseLogin = new LoginResponseDTO()
                     {
+                        UserID = userInformation.UserID,
+                        Email = userInformation.Email,
+                        Name = userInformation.Name,
                         Token = token,
                         Status = "AUTHORIZED"
                     };

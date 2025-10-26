@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StoreEcommerce.Interfaces;
 using StoreEcommerce.Models;
@@ -17,6 +18,7 @@ namespace StoreEcommerce.Controllers
             _logger = logger;
         }
 
+        [Authorize]
         [HttpPost("CreateNewOrder")]
         public async Task<ActionResult<string>> CreateNewOrder(OrderRequest orderRequest)
         {
@@ -35,6 +37,7 @@ namespace StoreEcommerce.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("GetUserOrder/{id}")]
         public async Task<ActionResult<List<UserOrderDetails>>> GetUserOrderById(int id)
         {

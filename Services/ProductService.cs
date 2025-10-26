@@ -112,6 +112,32 @@ namespace StoreEcommerce.Services
                 return Message = "Error occurred";
             }
         }
+
+        public async Task<List<Product>> GetProductByCategory(string name)
+        {
+            List<Product> product = new List<Product>();
+            try
+            {
+                _logger.LogInformation("Request to get product by Category");
+                var products = await _context.Products.Where(c => c.Category == name).ToListAsync();
+                _logger.LogInformation("Request to retrieve the product {product}: ", Convert.ToString(products.Count()));
+
+                return products;
+
+            }
+            catch (DbException dbException)
+            {
+                _logger.LogError("Database exception incurred: {DBEx}", dbException);
+                return product;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Database exception incurred: {Ex}", ex);
+                return product;
+            }
+
+        }
+
     }
 
 }

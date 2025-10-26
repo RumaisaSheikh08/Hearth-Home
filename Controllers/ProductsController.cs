@@ -85,5 +85,28 @@ namespace StoreEcommerce.Controllers
             }
         }
 
+        [HttpGet("getproductbycategory")]
+        public async Task<ActionResult<List<Product>>> GetProductByCategory([FromQuery]string categoryName)
+        {
+            try
+            {
+                _logger.LogInformation("Request Landed on Product Controller - GetProductByCategory {categoryName}", categoryName);
+                List<Product> productByCategory = await _productInterface.GetProductByCategory(categoryName);
+                if (productByCategory == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(productByCategory);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Exception incurred: {Ex}", ex);
+                return NotFound();
+            }
+        }
+
+
     }
 }
